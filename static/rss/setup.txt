@@ -1,0 +1,131 @@
+plugin.tx_browser_pi1 {
+
+  template {
+    extensions {
+      job_market {
+        rss {
+          // [String] Name of the template. It will displayed in the plugin/flexform
+          name = Job Market (RSS-Feed)
+          file = EXT:job_market/res/rss.tmpl
+          // [csv] Comma seperated list with the number of the correspondening views
+          csvViews  = 10
+        }
+      }
+    }
+  }
+
+  views {
+    list {
+      10 {
+        name = Job Market (RSS)
+        select (
+          tx_jobmarket_main.title,
+          tx_jobmarket_main.description,
+          tx_jobmarket_main.uid,
+          tx_jobmarket_main.crdate,
+          tx_jobmarket_region.title
+        )
+        orderBy (
+          tx_jobmarket_main.crdate DESC
+        )
+        csvLinkToSingleView = tx_jobmarket_region.title
+        tx_jobmarket_main {
+          crdate = COA
+          crdate {
+            10 = TEXT
+            10 {
+              value = http://
+            }
+          }
+          description = COA
+          description {
+            10 = TEXT
+            10 {
+              value = ###TX_JOBMARKET_MAIN.DESCRIPTION###
+              crop  = 200 | ... | 1
+            }
+          }
+          title = COA
+          title {
+            10 = TEXT
+            10 {
+              value = ###TX_JOBMARKET_MAIN.TITLE###
+              crop  = 40 | ... | 1
+            }
+            20 = TEXT
+            20 {
+              value = ###TX_JOBMARKET_REGION.TITLE###
+              noTrimWrap = | (|)|
+            }
+          }
+          uid = COA
+          uid {
+            10 = TEXT
+            10 {
+              value = {$plugin.tx_browser_pi1.extensions.job_market.host}/
+            }
+            20 = TEXT
+            20 {
+              typolink {
+                parameter = {$plugin.tx_browser_pi1.extensions.job_market.pages.single_view}
+                parameter {
+                  insertData = 1
+                }
+                additionalParams  = &tx_browser_pi1[showUid]=###TX_JOBMARKET_MAIN.UID###
+                returnLast = url
+              }
+            }
+          }
+        }
+        marker < plugin.tx_browser_pi1.marker
+        marker {
+          my_http = TEXT
+          my_http {
+            value = http://
+          }
+          rss_title {
+            value   = {$plugin.tx_browser_pi1.extensions.job_market._LOCAL_LANG.default.title}
+            lang.de = {$plugin.tx_browser_pi1.extensions.job_market._LOCAL_LANG.de.title}
+          }
+          rss_url {
+            typolink {
+              parameter = {$plugin.tx_browser_pi1.extensions.job_market.pages.rss_feed}
+            }
+          }
+          rss_description {
+            value   = {$plugin.tx_browser_pi1.extensions.job_market._LOCAL_LANG.default.description}
+            lang.de = {$plugin.tx_browser_pi1.extensions.job_market._LOCAL_LANG.de.description}
+          }
+          rss_image_title {
+            value   = {$plugin.tx_browser_pi1.extensions.job_market._LOCAL_LANG.default.description}
+            lang.de = {$plugin.tx_browser_pi1.extensions.job_market._LOCAL_LANG.de.description}
+          }
+          rss_image_url {
+            value = http://{$plugin.tx_browser_pi1.extensions.job_market.host}{$plugin.tx_browser_pi1.extensions.job_market.pathToIcon}
+          }
+          rss_image_link {
+            value = http://{$plugin.tx_browser_pi1.extensions.job_market.host}/
+          }
+          rss_image_height {
+            value = http://{$plugin.tx_browser_pi1.extensions.job_market.heightOfIcon}/
+          }
+          rss_image_width {
+            value = http://{$plugin.tx_browser_pi1.extensions.job_market.widthOfIcon}/
+          }
+          rss_image_description {
+            value   = {$plugin.tx_browser_pi1.extensions.job_market._LOCAL_LANG.default.description}
+            lang.de = {$plugin.tx_browser_pi1.extensions.job_market._LOCAL_LANG.de.description}
+          }
+        }
+      }
+    }
+    single {
+      10 {
+        // [Mixed] Internal comment
+        comment = This view should not be used. select value is a dummy!
+        // [String] Select clause (don't confuse it with the SQL select)
+        select = tx_jobmarket_main.title
+      }
+    }
+  }
+}

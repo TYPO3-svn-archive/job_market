@@ -1,0 +1,2 @@
+  # cat=basic//930;       type=options[No. I use one language only.,Yes. I use more than one language.]; label= Localization Support: Do you want to extend the backend with fields for translation?
+  LLsupport = No. I use one language only.

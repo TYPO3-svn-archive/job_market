@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <body>
+
+VERSION 3.7.0
+  - #27041: Single view got the record browser. See marker ###RECORD_BROWSER### below.
+            Single view got an id.
+            
+
+<!-- ###TEMPLATE_LIST### begin -->
+<!-- ###LIST_TITLE### begin -->
+        <div class="background">
+          ###MY_TITLE###
+        </div>
+<!-- ###LIST_TITLE### end -->
+<!-- ###SEARCHFORM### begin -->
+        <div class="searchbox searchbox-###VIEW###-###MODE###">
+          <form action="###ACTION###" method="post" >
+            <fieldset>
+              <legend>###MY_SEARCH_LEGEND###</legend>
+              <div style="float:right; text-align:right;">
+                <input class="reset" type="button" onclick="location='###MY_URL###'" value="###MY_RESET###" />
+                <input class="button" type="submit" value="###BUTTON###" />
+              </div>
+              <input type="hidden" name="no_cache" value="1" />
+              <input class="sword" type="text" name="tx_browser_pi1[sword]" onfocus="if(this.value =='###SWORD_DEFAULT###') this.value=''" value="###SWORD###" />
+              <br />
+              ###TX_JOBMARKET_TYPE.TITLE###
+              ###TX_JOBMARKET_SECTORGROUP.TITLE###
+              ###TX_JOBMARKET_REGION.TITLE###
+            <fieldset>
+          </form>
+          ###RESULTPHRASE###
+        </div><!-- ###SEARCHFORM### end -->
+        <div class="listarea">
+<!-- ###CATEGORY_MENU### begin -->
+          <!-- Add the category menu with the ###TABLE.FIELD### syntax and configure your category menu with TypoScript --> 
+          <!-- ###CATEGORY_MENU### end -->
+<!-- ###AZSELECTOR### begin -->
+          <div class="azSelector azSelector-###UL_VIEW###-###UL_MODE###">
+            <ul class="azSelector azSelector-###UL_VIEW###-###UL_MODE###"><!-- ###AZSELECTORTABS### begin -->
+              <li###LI_CLASS###>###TAB###</li><!-- ###AZSELECTORTABS### end -->
+            </ul>
+          </div><!-- ###AZSELECTOR### end -->
+<!-- ###PAGEBROWSER### begin -->
+          <div class="browsebox browsebox-###VIEW###-###MODE###">
+            ###RESULT_AND_ITEMS###
+          </div><!-- ###PAGEBROWSER### end -->
+<!-- ###MODESELECTOR### begin -->
+          <div class="modeSelector modeSelector-###VIEW###-###MODE###">
+            <ul class="modeSelector modeSelector-###VIEW###-###MODE###"><!-- ###MODESELECTORTABS### begin -->
+              <li###CLASS###>###TABS###</li><!-- ###MODESELECTORTABS### end -->
+            </ul>
+          </div><!-- ###MODESELECTOR### end -->
+          <!-- ###LISTVIEW### begin -->
+          <div class="###VIEW###view ###VIEW###view-###MODE###" style="padding:1em 0;">
+            <!-- ###LISTHEAD### begin --><!-- ###LISTHEADITEM### begin -->
+              ###ITEM###<!-- ###LISTHEADITEM### end --><!-- ###LISTHEAD### end -->
+            <!-- ###LISTBODY### begin --><!-- ###LISTBODYITEM### begin -->
+            <div style="border-top:1px dotted #FF8C00;padding:.4em 0;">
+              <div style="float:right;">
+                <p style="font-size:small;margin:0;text-align:right;">
+                  ###TX_JOBMARKET_SECTORGROUP.TITLE### | ###TX_JOBMARKET_REGION.TITLE###
+                </p>
+              </div>
+              <div style="">
+                <p style="font-size:small;margin:0;">
+                  ###TX_JOBMARKET_TYPE.TITLE###
+                </p>
+                <h2 style="margin:0px;">
+                   ###SOCIALMEDIA_BOOKMARKS### ###TX_JOBMARKET_MAIN.TITLE###
+                </h2>
+              </div>
+              <div style="clear:both;width:0px;height:0px;overflow:hidden;">
+                &nbsp;
+              </div>
+            </div><!-- ###LISTBODYITEM### end --><!-- ###LISTBODY### end -->
+          </div>
+          <!-- ###LISTVIEW### end -->
+        </div> <!-- /listarea -->
+<!-- ###TEMPLATE_LIST### end -->
+
+
+
+
+
+<!-- ###TEMPLATE_SINGLE### begin -->
+<!-- ###MODESELECTOR### begin -->
+        <div id="c###TT_CONTENT.UID###-modeSelector-###VIEW###-###MODE###" class="modeSelector modeSelector-###VIEW###-###MODE###">
+          <ul class="modeSelector modeSelector-###VIEW###-###MODE###"><!-- ###MODESELECTORTABS### begin -->
+            <li###CLASS###>###TABS###</li><!-- ###MODESELECTORTABS### end -->
+          </ul>
+        </div><!-- ###MODESELECTOR### end --><!-- ###SINGLEVIEW### begin --><!-- ###SINGLEBODY### begin --><!-- ###SINGLEBODYROW### begin -->
+        <div id="c###TT_CONTENT.UID###-###VIEW###view-###MODE###" class="###VIEW###view ###VIEW###view-###MODE###" style="padding:1em 0;">
+          ###RECORD_BROWSER###
+          <p>
+            ###TX_JOBMARKET_TYPE.TITLE###: ###TX_JOBMARKET_MAIN.REFERENCE_NUMBER###
+          </p>
+          <h1>
+            ###TX_JOBMARKET_MAIN.TITLE###
+          </h1>
+          <div style="float:right;">
+            ###SOCIALMEDIA_BOOKMARKS###
+          </div>
+          ###TX_JOBMARKET_MAIN.DESCRIPTION###
+          ###TX_JOBMARKET_SECTOR.TITLE###
+          ###TX_JOBMARKET_CONTRACTOR.TITLE###
+          ###TX_JOBMARKET_MAIN.LOCATION###
+          <!-- ###SINGLEBODYROW### end --><!-- ###SINGLEBODY### end --><!-- ###BACKBUTTON### begin -->
+          <p class="backbutton" style="text-align:right">
+            ###BUTTON###
+          </p><!-- ###BACKBUTTON### end -->
+        </div><!-- ###SINGLEVIEW### end -->
+<!-- ###TEMPLATE_SINGLE### end -->
+
+
+
+<!-- ###TEMPLATE_SELECTBOX_VALID### begin -->
+            <div class="sortbox">
+              <form ###CLASS### action="###URL###" method="POST">
+                <fieldset>
+                  <legend>###LEGEND###</legend>
+                  ###HIDDEN###
+                  ###SELECTBOX###
+                  <input class="button" type="submit" value="###BUTTON###" />
+                </fieldset>
+              </form>
+            </div>
+<!-- ###TEMPLATE_SELECTBOX_VALID### end -->
+
+
+
+  </body>
+</html>

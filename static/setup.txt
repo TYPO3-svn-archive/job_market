@@ -1,0 +1,478 @@
+
+
+  ////////////////////////////////////////
+  //
+  // INDEX
+
+  // [globalVar = TSFE:id = {$myConst.pages.rootpage}]
+  //   page
+  // plugin.tx_browser_pi1
+
+
+
+  ////////////////////////////////////////
+  //
+  // SEO - Search Engine Optimisation
+
+[globalVar = TSFE:id = {$myConst.pages.root}]
+page {
+  config {
+    noPageTitle = 2
+  }
+  headerData {
+    20 = TEXT
+    20 {
+      data = register:browser_htmlTitleTag
+      ifEmpty {
+        field = title
+        noTrimWrap  = |Job Market: ||
+      }
+      wrap = <title>|</title>
+    }
+  }
+  meta {
+    description {
+      field >
+      data = register:browser_description
+    }
+    keywords {
+      field >
+      data = register:browser_keywords
+    }
+  }
+}
+[global]
+  // SEO - Search Engine Optimisation
+
+
+  ////////////////////////////////////////
+  //
+  // Spam protect email addresses
+
+page {
+  config {
+    spamProtectEmailAddresses               = 6
+    spamProtectEmailAddresses_atSubst       = <span style="display:none;">spamfilter</span><span class="dummy">@</span>
+    spamProtectEmailAddresses_lastDotSubst  = <span style="display:none;">spamfilter</span><span class="dummy">.</span>
+  }
+}
+  // Spam protect email addresses
+
+
+plugin.tx_browser_pi1 {
+  
+  template {
+    file = EXT:job_market/res/default.tmpl
+    extensions {
+      job_market {
+        default {
+          name     = Job Market
+          file     = EXT:job_market/res/default.tmpl
+          csvViews = 1
+        }
+      }
+    }
+  }
+  
+  navigation {
+    indexBrowser {
+      defaultTabWrap = <span style="margin:0 .2em;">|</span>
+    }
+  }
+  displayList {
+    seo {
+      htmlHead {
+      title = 1
+        meta {
+          description = 1
+          keywords    = 1
+        }
+      }
+    }
+  }
+  
+  displaySingle {
+    seo {
+      htmlHead {
+      title = 1
+        meta {
+          description = 1
+          keywords    = 1
+        }
+      }
+    }
+  }
+  
+  views {
+    list {
+      1 {
+        name = Job Market
+        select (
+          tx_jobmarket_main.title,
+          tx_jobmarket_region.title,
+          tx_jobmarket_type.title,
+          tx_jobmarket_sectorgroup.title
+        )
+        orderBy (
+          tx_jobmarket_main.title
+        )
+        tx_jobmarket_region {
+          title = COA
+          title {
+            10 = TEXT
+            10 {
+              value = Region: ###TX_JOBMARKET_REGION.TITLE###
+              typolink {
+                parameter = {page:uid}
+                parameter {
+                  insertData = 1
+                }
+                additionalParams  = &tx_browser_pi1[showUid]=###TX_JOBMARKET_MAIN.UID###
+                ATagBeforeWrap    = 1
+              }
+            }
+          }
+        }
+        tx_jobmarket_sectorgroup {
+          title = COA
+          title {
+            10 = TEXT
+            10 {
+              value = Branchengruppe: ###TX_JOBMARKET_SECTORGROUP.TITLE###
+              typolink {
+                parameter = {page:uid}
+                parameter {
+                  insertData = 1
+                }
+                additionalParams  = &tx_browser_pi1[showUid]=###TX_JOBMARKET_MAIN.UID###
+                ATagBeforeWrap    = 1
+              }
+            }
+          }
+        }
+        filter {
+          tx_jobmarket_type {
+            title < plugin.tx_browser_pi1.displayList.master_templates.selectbox
+            title {
+              first_item {
+                stdWrap {
+                  data = LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_type.title
+                }
+              }
+              wrap = <span class="selectbox">|</span>
+              wrap {
+                item {
+                  stdWrap {
+                    crop = 20 | ... | 1
+                  }
+                }
+              }
+            }
+          }
+          tx_jobmarket_sectorgroup {
+            title < plugin.tx_browser_pi1.displayList.master_templates.selectbox
+            title {
+              first_item {
+                stdWrap {
+                  data = LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_sectorgroup.title
+                }
+              }
+              wrap = <span class="selectbox">|</span>
+              wrap {
+                item {
+                  stdWrap {
+                    crop = 20 | ... | 1
+                  }
+                }
+              }
+            }
+          }
+          tx_jobmarket_region {
+            title < plugin.tx_browser_pi1.displayList.master_templates.selectbox
+            title {
+              first_item {
+                stdWrap {
+                  data = LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_region.title
+                }
+              }
+              wrap = <span class="selectbox">|</span>
+              wrap {
+                item {
+                  stdWrap {
+                    crop = 20 | ... | 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    single {
+      1 {
+        select (
+          tx_jobmarket_main.title,
+          tx_jobmarket_main.short,
+          tx_jobmarket_main.description,
+          tx_jobmarket_main.reference_number,
+          tx_jobmarket_main.quantity,
+          tx_jobmarket_main.specification,
+          tx_jobmarket_sectorgroup.title,
+          tx_jobmarket_sector.title,
+          tx_jobmarket_region.title,
+          tx_jobmarket_county.title,
+          tx_jobmarket_main.location,
+          tx_jobmarket_type.title,
+          tx_jobmarket_contractor.title,
+          tx_jobmarket_contractor.url
+        )
+        tx_jobmarket_main {
+          description = COA
+          description {
+            10 = TEXT
+            10 {
+              wrap = <h2>|</h2>
+              stdWrap {
+                data = LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.description
+              }
+              if {
+                isTrue = ###TX_JOBMARKET_MAIN.DESCRIPTION###
+              }
+            }
+            20 = TEXT
+            20 {
+              value = <strong>###TX_JOBMARKET_MAIN.SHORT###</strong>
+              if {
+                isTrue = ###TX_JOBMARKET_MAIN.SHORT###
+              }
+            }
+            21 = TEXT
+            21 {
+              value = ###TX_JOBMARKET_MAIN.DESCRIPTION###
+              if {
+                isTrue = ###TX_JOBMARKET_MAIN.DESCRIPTION###
+              }
+            }
+            30 = TEXT
+            30 {
+              wrap = <h3>|</h3>
+              stdWrap {
+                data = LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.specification
+              }
+              if {
+                isTrue = ###TX_JOBMARKET_MAIN.SPECIFICATION###
+              }
+            }
+            31 = TEXT
+            31 {
+              value = ###TX_JOBMARKET_MAIN.SPECIFICATION###
+              if {
+                isTrue = ###TX_JOBMARKET_MAIN.SPECIFICATION###
+              }
+            }
+            40 = TEXT
+            40 {
+              wrap = <h3>|</h3>
+              stdWrap {
+                data = LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.quantity
+              }
+              if {
+                isTrue = ###TX_JOBMARKET_MAIN.QUANTITY###
+              }
+            }
+            41 = TEXT
+            41 {
+              value = <p>Eine Stelle</p>
+              if {
+                value  = ###TX_JOBMARKET_MAIN.QUANTITY###
+                equals = 1
+              }
+            }
+            42 = TEXT
+            42 {
+              value = <p>###TX_JOBMARKET_MAIN.QUANTITY### Stellen</p>
+              if {
+                value         = ###TX_JOBMARKET_MAIN.QUANTITY###
+                isLessThan = 1
+              }
+            }
+          }
+          location = COA
+          location {
+            10 = TEXT
+            10 {
+              wrap = <h2>|</h2><p>
+              stdWrap {
+                data = LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.location
+              }
+              if {
+                isTrue = ###TX_JOBMARKET_MAIN.LOCATION######TX_JOBMARKET_REGION.TITLE######TX_JOBMARKET_COUNTY.TITLE###
+              }
+            }
+            11 = TEXT
+            11 {
+              value = ###TX_JOBMARKET_MAIN.LOCATION###
+              if {
+                isTrue = ###TX_JOBMARKET_MAIN.LOCATION###
+              }
+            }
+            12 = TEXT
+            12 {
+              value      = (
+              noTrimWrap = | || 
+              if {
+                isTrue = ###TX_JOBMARKET_REGION.TITLE######TX_JOBMARKET_COUNTY.TITLE###
+              }
+            }
+            13 = TEXT
+            13 {
+              value = ###TX_JOBMARKET_COUNTY.TITLE###
+              if {
+                isTrue = ###TX_JOBMARKET_COUNTY.TITLE###
+              }
+            }
+            14 = TEXT
+            14 {
+              value = /
+              if {
+                isTrue = ###TX_JOBMARKET_COUNTY.TITLE###
+                value  = ###TX_JOBMARKET_REGION.TITLE###
+                equals = ###TX_JOBMARKET_REGION.TITLE###
+              }
+            }
+            15 = TEXT
+            15 {
+              value = ###TX_JOBMARKET_REGION.TITLE###
+              if {
+                isTrue = ###TX_JOBMARKET_REGION.TITLE###
+              }
+            }
+            16 = TEXT
+            16 {
+              value = )
+              if {
+                isTrue = ###TX_JOBMARKET_REGION.TITLE######TX_JOBMARKET_COUNTY.TITLE###
+              }
+            }
+            17 = TEXT
+            17 {
+              value = </p>
+              if {
+                isTrue = ###TX_JOBMARKET_MAIN.LOCATION######TX_JOBMARKET_REGION.TITLE######TX_JOBMARKET_COUNTY.TITLE###
+              }
+            }
+          }
+          reference_number = COA
+          reference_number {
+            10 = TEXT
+            10 {
+              noTrimWrap = || ###TX_JOBMARKET_MAIN.REFERENCE_NUMBER###|
+              stdWrap {
+                data = LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.reference_number
+              }
+            }
+          }
+        }
+        tx_jobmarket_sector {
+          title = COA
+          title {
+            10 = TEXT
+            10 {
+              wrap = <h2>|</h2>
+              stdWrap {
+                data = LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_sector.title
+              }
+              if {
+                isTrue = ###TX_JOBMARKET_SECTOR.TITLE###
+              }
+            }
+            11 = TEXT
+            11 {
+              value = ###TX_JOBMARKET_SECTORGROUP.TITLE###: ###TX_JOBMARKET_SECTOR.TITLE###
+              wrap  = <p>|</p>
+              if {
+                isTrue = ###TX_JOBMARKET_SECTOR.TITLE###
+              }
+            }
+          }
+        }
+        tx_jobmarket_contractor {
+          title = COA
+          title {
+            10 = TEXT
+            10 {
+              wrap = <h2>|</h2><p>
+              stdWrap {
+                data = LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_contractor.title
+              }
+              if {
+                isTrue = ###TX_JOBMARKET_CONTRACTOR.TITLE######TX_JOBMARKET_CONTRACTOR.URL###
+              }
+            }
+            11 = TEXT
+            11 {
+              value = ###TX_JOBMARKET_CONTRACTOR.TITLE###
+            }
+            12 = TEXT
+            12 {
+              value = <br />
+              if {
+                isTrue = ###TX_JOBMARKET_CONTRACTOR.TITLE###
+              }
+            }
+            13 = TEXT
+            13 {
+              noTrimWrap = ||: ###TX_JOBMARKET_CONTRACTOR.URL###|
+              stdWrap {
+                data = LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_contractor.url
+              }
+              if {
+                isTrue = ###TX_JOBMARKET_CONTRACTOR.URL###
+              }
+            }
+            14 = TEXT
+            14 {
+              value = </p>
+              if {
+                isTrue = ###TX_JOBMARKET_CONTRACTOR.TITLE######TX_JOBMARKET_CONTRACTOR.URL###
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  _LOCAL_LANG {
+    default {
+      label_sword_default       = Search Word
+      pi_list_searchBox_search  = Search!
+      list_mode_1_titleTag      = Job Market
+      list_mode_1_keywords      = jobs, job offer, job applicants., job market
+      list_mode_1_summary       = Job market: job offers and job applicants
+      single_mode_1_titleTag    = ###TX_JOBMARKET_TYPE.TITLE###: ###TX_JOBMARKET_MAIN.TITLE### - job offers and job applicants
+      single_mode_1_keywords    = ###TX_JOBMARKET_TYPE.TITLE###, ###TX_JOBMARKET_MAIN.TITLE###, job offer, job applicant, jobs
+      single_mode_1_summary     = ###TX_JOBMARKET_TYPE.TITLE###: ###TX_JOBMARKET_MAIN.TITLE### - job offers and job applicants
+    }
+    de {
+      label_sword_default       = Suchbegriff
+      pi_list_searchBox_search  = Suchen!
+      list_mode_1_titleTag      = Job Market: die kostenlose Stellenmarkt-Software
+      list_mode_1_keywords      = Job Market, TYPO3, Browser
+      list_mode_1_summary       = Job Market: die kostenlose Stellenmarkt-Software. Job Market basiert auf dem Browser, der TYPO3-Frontend-Engine und kommt ohne jeden PHP-Code aus.
+      single_mode_1_titleTag    = ###TX_JOBMARKET_TYPE.TITLE###: ###TX_JOBMARKET_MAIN.TITLE### - Job B&ouml;rse, Stellenangebote, Stellengesuche
+      single_mode_1_keywords    = ###TX_JOBMARKET_TYPE.TITLE###, ###TX_JOBMARKET_MAIN.TITLE###, Job B&ouml;rse, Stellenangebote, Stellengesuche
+      single_mode_1_summary     = ###TX_JOBMARKET_TYPE.TITLE###: ###TX_JOBMARKET_MAIN.TITLE### - Job B&ouml;rse mit Stellenangeboten und Stellengesuchen
+    }
+  }
+}
+
+
+  ////////////////////////////////////////
+  //
+  // Header Comment
+
+page.config.headerComment (
+        TYPO3-Programmierung: die-netzmacher.de
+)
+  // Header Comment

@@ -1,0 +1,33 @@
+
+  ////////////////////////////////////////////////////////
+  //
+  // RSS alternate link in the HTML head section
+
+  // Add this snippet to your TypoScript of your root page.
+  // Adapt the snippet to your needs.
+  
+page {
+  headerData {    
+    99 = COA
+    99 {
+      10 = TEXT
+      10 {
+        value = <link rel="alternate" type="application/rss+xml" title="TYPO3 Job Market" href="
+      }
+      20 = TEXT
+      20 {
+        stdWrap {
+          typolink {
+            parameter   = {$plugin.tx_browser_pi1.extensions.job_market.pages.rss_feed}
+            returnLast  = url
+          }
+        }
+      }
+      30 = TEXT
+      30 {
+        value = " />
+      }
+    }
+  }
+}
+  // RSS alternate link in the HTML head section
