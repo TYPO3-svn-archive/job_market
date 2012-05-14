@@ -91,11 +91,11 @@
       ]]></label>
       <label index="promptUpdateDanger"><![CDATA[
         <h1>
-          Best performance with a new database design
+          Job Market 2.x: best performance with a new database design
         </h1>
         <ul>
           <li>
-            Job Market 2.x kick off the out-dated database design of the Job Market version 1.x.
+            Job Market 2.x kicks off the out-dated database design of the Job Market version 1.x.
           </li>
           <li>
             2.x is using MM tables now.
@@ -115,7 +115,8 @@
             If you don't convert the data, you will lose all relations!
           </li>
           <li>
-            If you don't know, how to convert the data, you can get support by the developers. But the support is with costs.
+            If you don't know, how to convert the data, you can get support by the developers.See below. 
+            Unfortunately the support is with costs.
           </li>
           <li>
             If you don't want to update, please downgrade Job Market to the last 1.x version now. No data will lost.
@@ -132,7 +133,7 @@
             Select the tab [Import Extensions]
           </li>
           <li>
-            Look for "job_market"
+            Search for "job_market"
           </li>
           <li>
             Click the title "Job Market ..." with the right button of your mouse
