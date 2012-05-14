@@ -1,17 +1,30 @@
 <?php
-if (!defined ('TYPO3_MODE')) 
-{
-  die ('Access denied.');
-}
+if (!defined ('TYPO3_MODE')) die ('Access denied.');
 
-  ///////////////////////////////////////
-  // 
-  // Enables the Include Static Template
+
+
+    ///////////////////////////////////////////////////////////
+    //
+    // INDEX
+    
+    // Enables the Include Static Template
+    // TCA
+
+
+
+    ///////////////////////////////////////
+    // 
+    // Enables the Include Static Template
 
 t3lib_extMgm::addStaticFile($_EXTKEY,'static/','Job Market');
 t3lib_extMgm::addStaticFile($_EXTKEY,'static/rss/','+Job Market - RSS');
-  // Enables the Include Static Template
+    // Enables the Include Static Template
 
+
+
+    ///////////////////////////////////////
+    // 
+    // TCA
 
 $TCA['tx_jobmarket_main'] = array (
   'ctrl' => array (
@@ -138,5 +151,6 @@ $TCA['tx_jobmarket_type'] = array (
     'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY).'ext_icon.gif',
   ),
 );
+    // TCA
 
 ?>
