@@ -90,22 +90,30 @@
             alt="Your logo with your URL. 120 x 90 pixel." /></a>
       ]]></label>
       <label index="promptUpdateDanger"><![CDATA[
-        <ul style="list-style:outside;">
-          <li>
-            TYPO3-Job-Market website<br />
-            <a href="http://typo3-job_market.de/"
-              style="text-decoration:underline;"
-              alt="Job-Market"
-              title="Job-Market"
-              target="_blank">typo3-job_market.de</a>
-          </li>
-        </ul>
-        </div>
-        <p style="font-weight:bold;padding:1em 0;">
-          Job Market based on the TYPO3-Browser project. It is sponsored by:
+        <h1>
+          New Database Design!
+        </h1>
+        <h2>
+          All relations will lost! 
+        </h2>
+        <p>
+          Job Market 1.x has an out-dated database design. 1.x is using so called csv relations but not MM tables.
+          This cost a lot of performance.
         </p>
-        <p style="padding:0 0 1em 0;">
-          You like to subsidise the TYPO3-Browser project?
+        <p>
+          If you like to update, you have to convert the csv data to MM data.
+        </p>
+        <p>
+          If you don't know, how to convert the data, you can get support by the developers. But the support is with costs.
+        </p>
+        <p>
+          If you don't want to update, please downgrade Job Market to the last 1.x version now. No data will lost.
+        </p>
+        <h2>
+          Downgrade 
+        </h2>
+        <p>
+          If you downgrade to Job Market 1.x version now, no data will lost.
         </p>
       ]]></label>
     </languageKey>

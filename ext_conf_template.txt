@@ -1,4 +1,4 @@
-  # cat=basic/enable;         type=user[EXT:job_market/lib/class.tx_jobmarket_extmanager.php:tx_jobmarket_extmanager->promptUpdateDanger]; label=Update Wizard
+  # cat=basic/enable;         type=user[EXT:job_market/lib/class.tx_jobmarket_extmanager.php:tx_jobmarket_extmanager->promptUpdateDanger]; label=Update Alarm
 updateDanger=0
 
 # cat=basic/others;           type=user[EXT:job_market/lib/class.tx_jobmarket_extmanager.php:tx_jobmarket_extmanager->promptExternalLinks]; label=External Links
