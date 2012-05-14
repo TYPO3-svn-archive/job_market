@@ -91,30 +91,62 @@
       ]]></label>
       <label index="promptUpdateDanger"><![CDATA[
         <h1>
-          New Database Design!
+          Best performance with a new database design
         </h1>
+        <ul>
+          <li>
+            Job Market 2.x kick off the out-dated database design of the Job Market version 1.x.
+          </li>
+          <li>
+            2.x is using MM tables now.
+          </li>
+          <li>
+            1.x was using so called csv relations but not MM tables. Csv relations are slow as cold glue!
+          </li>
+        </ul>
         <h2>
-          All relations will lost! 
+          All relations will lost without converting!
         </h2>
-        <p>
-          Job Market 1.x has an out-dated database design. 1.x is using so called csv relations but not MM tables.
-          This cost a lot of performance.
-        </p>
-        <p>
-          If you like to update, you have to convert the csv data to MM data.
-        </p>
-        <p>
-          If you don't know, how to convert the data, you can get support by the developers. But the support is with costs.
-        </p>
-        <p>
-          If you don't want to update, please downgrade Job Market to the last 1.x version now. No data will lost.
-        </p>
+        <ul>
+          <li>
+            If you like to update, you have to convert the csv data to MM data.
+          </li>
+          <li>
+            If you don't convert the data, you will lose all relations!
+          </li>
+          <li>
+            If you don't know, how to convert the data, you can get support by the developers. But the support is with costs.
+          </li>
+          <li>
+            If you don't want to update, please downgrade Job Market to the last 1.x version now. No data will lost.
+          </li>
+        </ul>
         <h2>
-          Downgrade 
+          How to downgrade to 1.x
         </h2>
-        <p>
-          If you downgrade to Job Market 1.x version now, no data will lost.
-        </p>
+        <ul>
+          <li>
+            Start the extension manager: Modul > Admin Tools > Extension Manager
+          </li>
+          <li>
+            Select the tab [Import Extensions]
+          </li>
+          <li>
+            Look for "job_market"
+          </li>
+          <li>
+            Click the title "Job Market ..." with the right button of your mouse
+          </li>
+          <li>
+            Click the pop up menu "Import versions of Job Market ..."
+          </li>
+          <li>
+            Select the latest 1.x version
+          </li>
+          <li>
+            Install it
+          </li>
+        </ul>
       ]]></label>
     </languageKey>
     <languageKey index="de" type="array">
