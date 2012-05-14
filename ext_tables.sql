@@ -3,6 +3,7 @@
 # 'tx_jobmarket_main_mm_tx_jobmarket_county'
 # 'tx_jobmarket_main_mm_tx_jobmarket_region'
 # 'tx_jobmarket_main_mm_tx_jobmarket_sector'
+# 'tx_jobmarket_main_mm_tx_jobmarket_sectorgroup'
 # 'tx_jobmarket_main_mm_tx_jobmarket_type'
 # 'tx_jobmarket_contractor'
 # 'tx_jobmarket_county'
@@ -105,6 +106,21 @@ CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_region (
 # 'tx_jobmarket_main_mm_tx_jobmarket_sector'
 #
 CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_sector (
+  uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+  uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+  tablenames varchar(30) DEFAULT '' NOT NULL,
+  sorting         int(11) unsigned DEFAULT '0' NOT NULL,
+  sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+  KEY uid_local (uid_local),
+  KEY uid_foreign (uid_foreign)
+);
+
+
+
+#
+# 'tx_jobmarket_main_mm_tx_jobmarket_sectorgroup'
+#
+CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_sectorgroup (
   uid_local int(11) unsigned DEFAULT '0' NOT NULL,
   uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
   tablenames varchar(30) DEFAULT '' NOT NULL,
