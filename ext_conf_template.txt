@@ -1,6 +1,6 @@
 # cat=basic//930;       type=options[No. I use one language only.,Yes. I use more than one language.]; label= Localization Support: Do you want to extend the backend with fields for translation?
 LLsupport = No. I use one language only.
 
-# cat=basic/others;             type=user[EXT:quick_shop/lib/class.tx_quickshop_extmanager.php:tx_quickshop_extmanager->promptExternalLinks]; label=External Links
+# cat=basic/others;             type=user[EXT:quick_shop/lib/class.tx_jobmarket_extmanager.php:tx_jobmarket_extmanager->promptExternalLinks]; label=External Links
 external_links_01=0
 
