@@ -155,8 +155,10 @@ plugin.tx_browser_pi1 {
             title < plugin.tx_browser_pi1.displayList.master_templates.selectbox
             title {
               first_item {
-                stdWrap {
-                  data = LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_type.title
+                cObject {
+                  20 {
+                    data = LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_type.title
+                  }
                 }
               }
               wrap = <span class="selectbox">|</span>
@@ -173,8 +175,10 @@ plugin.tx_browser_pi1 {
             title < plugin.tx_browser_pi1.displayList.master_templates.selectbox
             title {
               first_item {
-                stdWrap {
-                  data = LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_sectorgroup.title
+                cObject {
+                  20 {
+                    data = LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_sectorgroup.title
+                  }
                 }
               }
               wrap = <span class="selectbox">|</span>
@@ -191,8 +195,10 @@ plugin.tx_browser_pi1 {
             title < plugin.tx_browser_pi1.displayList.master_templates.selectbox
             title {
               first_item {
-                stdWrap {
-                  data = LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_region.title
+                cObject {
+                  20 {
+                    data = LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_region.title
+                  }
                 }
               }
               wrap = <span class="selectbox">|</span>

@@ -1,3 +1,10 @@
+1.5.2
+  12-05-14
+  Update
+  * #00000: Update to Browser version 3.9.14
+            filter.table.field.first_item.value_stdWrap is moved to cObject
+            Effected files:
+            * static/setup.txt
 1.5.1
   12-03-04
   Imrovements
