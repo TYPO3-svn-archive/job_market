@@ -65,7 +65,7 @@ class tx_jobmarket_extmanager
  * @since 3.6.0
  * @version 3.6.0
  */
-  function promptCheckUpdate()
+  function promptUpdateDanger()
   {
 //.message-notice
 //.message-information
@@ -76,55 +76,14 @@ class tx_jobmarket_extmanager
       $str_prompt = null;
 
       $str_prompt = $str_prompt.'
-<div class="typo3-message message-information">
+<div class="typo3-message message-error">
   <div class="message-body">
-    ' . $GLOBALS['LANG']->sL('LLL:EXT:job_market/lib/locallang.xml:promptCheckUpdateBody'). '
+    ' . $GLOBALS['LANG']->sL('LLL:EXT:job_market/lib/locallang.xml:promptUpdateDanger'). '
   </div>
 </div>';
 
     return $str_prompt;
   }
-
-
-
-
-
-
-
-
-
-  /**
- * promptCurrIP(): Displays the IP of the current backend user
- *
- * @return	string		message wrapped in HTML
- * @since 3.6.0
- * @version 3.6.0
- */
-  function promptCurrIP()
-  {
-//.message-notice
-//.message-information
-//.message-ok
-//.message-warning
-//.message-error
-
-      $str_prompt = null;
-
-      $str_prompt = $str_prompt.'
-<div class="typo3-message message-information">
-  <div class="message-body">
-    ' . $GLOBALS['LANG']->sL('LLL:EXT:job_market/lib/locallang.xml:promptCurrIPBody') . ': ' . t3lib_div :: getIndpEnv('REMOTE_ADDR') . '
-  </div>
-</div>';
-
-    return $str_prompt;
-  }
-
-
-
-
-
-
 
 
 

@@ -1,5 +1,19 @@
+# 'tx_jobmarket_main'
+# 'tx_jobmarket_main_mm_tx_jobmarket_contractor'
+# 'tx_jobmarket_main_mm_tx_jobmarket_county'
+# 'tx_jobmarket_main_mm_tx_jobmarket_region'
+# 'tx_jobmarket_main_mm_tx_jobmarket_sector'
+# 'tx_jobmarket_main_mm_tx_jobmarket_type'
+# 'tx_jobmarket_contractor'
+# 'tx_jobmarket_county'
+# 'tx_jobmarket_region'
+# 'tx_jobmarket_sector'
+# 'tx_jobmarket_type'
+
+
+
 #
-# Table structure for table 'tx_jobmarket_main'
+# 'tx_jobmarket_main'
 #
 CREATE TABLE tx_jobmarket_main (
   uid int(11) NOT NULL auto_increment,
@@ -43,7 +57,82 @@ CREATE TABLE tx_jobmarket_main (
 
 
 #
-# Table structure for table 'tx_jobmarket_contractor'
+# 'tx_jobmarket_main_mm_tx_jobmarket_contractor'
+#
+CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_contractor (
+  uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+  uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+  tablenames varchar(30) DEFAULT '' NOT NULL,
+  sorting         int(11) unsigned DEFAULT '0' NOT NULL,
+  sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+  KEY uid_local (uid_local),
+  KEY uid_foreign (uid_foreign)
+);
+
+
+
+#
+# 'tx_jobmarket_main_mm_tx_jobmarket_county'
+#
+CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_county (
+  uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+  uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+  tablenames varchar(30) DEFAULT '' NOT NULL,
+  sorting         int(11) unsigned DEFAULT '0' NOT NULL,
+  sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+  KEY uid_local (uid_local),
+  KEY uid_foreign (uid_foreign)
+);
+
+
+
+#
+# 'tx_jobmarket_main_mm_tx_jobmarket_region'
+#
+CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_region (
+  uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+  uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+  tablenames varchar(30) DEFAULT '' NOT NULL,
+  sorting         int(11) unsigned DEFAULT '0' NOT NULL,
+  sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+  KEY uid_local (uid_local),
+  KEY uid_foreign (uid_foreign)
+);
+
+
+
+#
+# 'tx_jobmarket_main_mm_tx_jobmarket_sector'
+#
+CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_sector (
+  uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+  uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+  tablenames varchar(30) DEFAULT '' NOT NULL,
+  sorting         int(11) unsigned DEFAULT '0' NOT NULL,
+  sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+  KEY uid_local (uid_local),
+  KEY uid_foreign (uid_foreign)
+);
+
+
+
+#
+# 'tx_jobmarket_main_mm_tx_jobmarket_type'
+#
+CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_type (
+  uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+  uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+  tablenames varchar(30) DEFAULT '' NOT NULL,
+  sorting         int(11) unsigned DEFAULT '0' NOT NULL,
+  sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+  KEY uid_local (uid_local),
+  KEY uid_foreign (uid_foreign)
+);
+
+
+
+#
+# 'tx_jobmarket_contractor'
 #
 CREATE TABLE tx_jobmarket_contractor (
   uid int(11) NOT NULL auto_increment,
@@ -80,11 +169,8 @@ CREATE TABLE tx_jobmarket_contractor (
 
 
 
-
-
-
 #
-# Table structure for table 'tx_jobmarket_county'
+# 'tx_jobmarket_county'
 #
 CREATE TABLE tx_jobmarket_county (
   uid int(11) NOT NULL auto_increment,
@@ -112,7 +198,7 @@ CREATE TABLE tx_jobmarket_county (
 
 
 #
-# Table structure for table 'tx_jobmarket_region'
+# 'tx_jobmarket_region'
 #
 CREATE TABLE tx_jobmarket_region (
   uid int(11) NOT NULL auto_increment,
@@ -140,7 +226,7 @@ CREATE TABLE tx_jobmarket_region (
 
 
 #
-# Table structure for table 'tx_jobmarket_sector'
+# 'tx_jobmarket_sector'
 #
 CREATE TABLE tx_jobmarket_sector (
   uid int(11) NOT NULL auto_increment,
@@ -168,7 +254,7 @@ CREATE TABLE tx_jobmarket_sector (
 
 
 #
-# Table structure for table 'tx_jobmarket_sectorgroup'
+# 'tx_jobmarket_sectorgroup'
 #
 CREATE TABLE tx_jobmarket_sectorgroup (
   uid int(11) NOT NULL auto_increment,
@@ -196,7 +282,7 @@ CREATE TABLE tx_jobmarket_sectorgroup (
 
 
 #
-# Table structure for table 'tx_jobmarket_type'
+# 'tx_jobmarket_type'
 #
 CREATE TABLE tx_jobmarket_type (
   uid int(11) NOT NULL auto_increment,
