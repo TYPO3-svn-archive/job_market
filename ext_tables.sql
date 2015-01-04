@@ -1,20 +1,20 @@
-# 'tx_jobmarket_main'
-# 'tx_jobmarket_main_mm_tx_jobmarket_contractor'
-# 'tx_jobmarket_main_mm_tx_jobmarket_county'
-# 'tx_jobmarket_main_mm_tx_jobmarket_region'
-# 'tx_jobmarket_main_mm_tx_jobmarket_sector'
-# 'tx_jobmarket_main_mm_tx_jobmarket_sectorgroup'
-# 'tx_jobmarket_main_mm_tx_jobmarket_type'
-# 'tx_jobmarket_contractor'
-# 'tx_jobmarket_county'
-# 'tx_jobmarket_region'
-# 'tx_jobmarket_sector'
-# 'tx_jobmarket_type'
+# tx_jobmarket_main
+# tx_jobmarket_main_mm_tx_jobmarket_contractor
+# tx_jobmarket_main_mm_tx_jobmarket_county
+# tx_jobmarket_main_mm_tx_jobmarket_region
+# tx_jobmarket_main_mm_tx_jobmarket_sector
+# tx_jobmarket_main_mm_tx_jobmarket_sectorgroup
+# tx_jobmarket_main_mm_tx_jobmarket_type
+# tx_jobmarket_contractor
+# tx_jobmarket_county
+# tx_jobmarket_region
+# tx_jobmarket_sector
+# tx_jobmarket_type
 
 
 
 #
-# 'tx_jobmarket_main'
+# tx_jobmarket_main
 #
 CREATE TABLE tx_jobmarket_main (
   uid int(11) NOT NULL auto_increment,
@@ -50,7 +50,7 @@ CREATE TABLE tx_jobmarket_main (
   imagetitletext text,
   documents text,
   thirdparty_id tinytext,
-  
+
   PRIMARY KEY (uid),
   KEY parent (pid)
 );
@@ -58,7 +58,7 @@ CREATE TABLE tx_jobmarket_main (
 
 
 #
-# 'tx_jobmarket_main_mm_tx_jobmarket_contractor'
+# tx_jobmarket_main_mm_tx_jobmarket_contractor
 #
 CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_contractor (
   uid_local int(11) unsigned DEFAULT '0' NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_contractor (
 
 
 #
-# 'tx_jobmarket_main_mm_tx_jobmarket_county'
+# tx_jobmarket_main_mm_tx_jobmarket_county
 #
 CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_county (
   uid_local int(11) unsigned DEFAULT '0' NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_county (
 
 
 #
-# 'tx_jobmarket_main_mm_tx_jobmarket_region'
+# tx_jobmarket_main_mm_tx_jobmarket_region
 #
 CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_region (
   uid_local int(11) unsigned DEFAULT '0' NOT NULL,
@@ -103,7 +103,7 @@ CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_region (
 
 
 #
-# 'tx_jobmarket_main_mm_tx_jobmarket_sector'
+# tx_jobmarket_main_mm_tx_jobmarket_sector
 #
 CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_sector (
   uid_local int(11) unsigned DEFAULT '0' NOT NULL,
@@ -118,7 +118,7 @@ CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_sector (
 
 
 #
-# 'tx_jobmarket_main_mm_tx_jobmarket_sectorgroup'
+# tx_jobmarket_main_mm_tx_jobmarket_sectorgroup
 #
 CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_sectorgroup (
   uid_local int(11) unsigned DEFAULT '0' NOT NULL,
@@ -133,7 +133,7 @@ CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_sectorgroup (
 
 
 #
-# 'tx_jobmarket_main_mm_tx_jobmarket_type'
+# tx_jobmarket_main_mm_tx_jobmarket_type
 #
 CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_type (
   uid_local int(11) unsigned DEFAULT '0' NOT NULL,
@@ -148,7 +148,7 @@ CREATE TABLE tx_jobmarket_main_mm_tx_jobmarket_type (
 
 
 #
-# 'tx_jobmarket_contractor'
+# tx_jobmarket_contractor
 #
 CREATE TABLE tx_jobmarket_contractor (
   uid int(11) NOT NULL auto_increment,
@@ -178,7 +178,7 @@ CREATE TABLE tx_jobmarket_contractor (
   imagetitletext text,
   imagetitletext_lang_ol text,
   thirdparty_id tinytext,
-  
+
   PRIMARY KEY (uid),
   KEY parent (pid)
 );
@@ -186,7 +186,7 @@ CREATE TABLE tx_jobmarket_contractor (
 
 
 #
-# 'tx_jobmarket_county'
+# tx_jobmarket_county
 #
 CREATE TABLE tx_jobmarket_county (
   uid int(11) NOT NULL auto_increment,
@@ -206,7 +206,7 @@ CREATE TABLE tx_jobmarket_county (
   imagetitletext text,
   imagetitletext_lang_ol text,
   thirdparty_id tinytext,
-  
+
   PRIMARY KEY (uid),
   KEY parent (pid)
 );
@@ -214,7 +214,7 @@ CREATE TABLE tx_jobmarket_county (
 
 
 #
-# 'tx_jobmarket_region'
+# tx_jobmarket_region
 #
 CREATE TABLE tx_jobmarket_region (
   uid int(11) NOT NULL auto_increment,
@@ -234,7 +234,7 @@ CREATE TABLE tx_jobmarket_region (
   imagetitletext text,
   imagetitletext_lang_ol text,
   thirdparty_id tinytext,
-  
+
   PRIMARY KEY (uid),
   KEY parent (pid)
 );
@@ -242,7 +242,7 @@ CREATE TABLE tx_jobmarket_region (
 
 
 #
-# 'tx_jobmarket_sector'
+# tx_jobmarket_sector
 #
 CREATE TABLE tx_jobmarket_sector (
   uid int(11) NOT NULL auto_increment,
@@ -262,7 +262,7 @@ CREATE TABLE tx_jobmarket_sector (
   imagetitletext text,
   imagetitletext_lang_ol text,
   thirdparty_id tinytext,
-  
+
   PRIMARY KEY (uid),
   KEY parent (pid)
 );
@@ -270,7 +270,7 @@ CREATE TABLE tx_jobmarket_sector (
 
 
 #
-# 'tx_jobmarket_sectorgroup'
+# tx_jobmarket_sectorgroup
 #
 CREATE TABLE tx_jobmarket_sectorgroup (
   uid int(11) NOT NULL auto_increment,
@@ -290,7 +290,7 @@ CREATE TABLE tx_jobmarket_sectorgroup (
   imagetitletext text,
   imagetitletext_lang_ol text,
   thirdparty_id tinytext,
-  
+
   PRIMARY KEY (uid),
   KEY parent (pid)
 );
@@ -298,7 +298,7 @@ CREATE TABLE tx_jobmarket_sectorgroup (
 
 
 #
-# 'tx_jobmarket_type'
+# tx_jobmarket_type
 #
 CREATE TABLE tx_jobmarket_type (
   uid int(11) NOT NULL auto_increment,
@@ -318,7 +318,7 @@ CREATE TABLE tx_jobmarket_type (
   imagetitletext text,
   imagetitletext_lang_ol text,
   thirdparty_id tinytext,
-  
+
   PRIMARY KEY (uid),
   KEY parent (pid)
 );
