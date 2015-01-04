@@ -1,3 +1,17 @@
+2.0.1
+  15-01-04
+  Improvement
+  * #i0001: TYPO3 6.2
+  Bugfix
+  * #64118: TCA table.fields are buggy
+            Unknown column 'tx_org_jobmarket_type.deleted' in 'where clause'
+            Unknown column 'fe_users.hidden' in 'where clause'
+            Unknown column 'tx_org_jobmarket_contractor.deleted' in 'where clause'
+            Unknown column 'tx_org_jobmarket_sectorgroup.deleted' in 'where clause'
+            Unknown column 'tx_org_jobmarket_sector.deleted' in 'where clause'
+            Unknown column 'tx_org_jobmarket_region.deleted' in 'where clause'
+            Unknown column 'tx_org_jobmarket_county.deleted' in 'where clause'
+
 1.5.2
   12-05-14
   Update
@@ -16,7 +30,7 @@
   11-08-01
   New Feature
   * #27041: Record browser for the single view / Prev-next Switcher in the single view
-  
+
 1.4.0
   11-08-08
   Improvement

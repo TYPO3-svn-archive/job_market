@@ -7,9 +7,9 @@ if (!defined ('TYPO3_MODE'))
 
 
   ///////////////////////////////////////
-  // 
+  //
   // Localization support
-  
+
 $bool_LL = FALSE;
 $confArr = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['job_market']);
 if (strtolower(substr($confArr['LLsupport'], 0, strlen('yes'))) == 'yes')
@@ -20,9 +20,9 @@ if (strtolower(substr($confArr['LLsupport'], 0, strlen('yes'))) == 'yes')
 
 
   ///////////////////////////////////////
-  // 
+  //
   // TCA Main
-  
+
   // Non localized
 $TCA['tx_jobmarket_main'] = array (
   'ctrl' => $TCA['tx_jobmarket_main']['ctrl'],
@@ -102,13 +102,13 @@ $TCA['tx_jobmarket_main'] = array (
       'exclude' => 0,
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.type',
       'config' => array (
-        'type' => 'select', 
-        'size' => 1, 
+        'type' => 'select',
+        'size' => 1,
         'minitems' => 0,
         'maxitems' => 1,
         'MM'                  => 'tx_jobmarket_main_mm_tx_jobmarket_type',
         'foreign_table'       => 'tx_jobmarket_type',
-        'foreign_table_where' => 'AND tx_jobmarket_type.pid=###CURRENT_PID### AND tx_org_jobmarket_type.deleted = 0 AND tx_org_jobmarket_type.hidden = 0 ORDER BY tx_jobmarket_type.title',
+        'foreign_table_where' => 'AND tx_jobmarket_type.pid=###CURRENT_PID### AND tx_org_jobmarket_type.hidden = 0 ORDER BY tx_jobmarket_type.title',
         'items' => array(
           '0' => array(
             '0' => '---',
@@ -155,7 +155,7 @@ $TCA['tx_jobmarket_main'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.short',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -164,7 +164,7 @@ $TCA['tx_jobmarket_main'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.note',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -212,14 +212,14 @@ $TCA['tx_jobmarket_main'] = array (
       'l10n_mode' => 'exclude',
       'exclude' => 0,
       'l10n_mode' => 'exclude',
-      'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.fe_user', 
+      'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.fe_user',
       'config' => array (
-        'type' => 'select', 
+        'type' => 'select',
         'foreign_table' => 'fe_users',
-        'foreign_table_where' => 'AND fe_users.pid=###STORAGE_PID### AND fe_users.deleted = 0 AND fe_users.hidden = 0 ORDER BY fe_users.name',
-        'size' => 1, 
+        'foreign_table_where' => 'AND fe_users.pid=###STORAGE_PID### AND fe_users.deleted = 0 ORDER BY fe_users.name',
+        'size' => 1,
         'minitems' => 0,
-        'maxitems' => 1,  
+        'maxitems' => 1,
         'items' => array(
           '0' => array(
             '0' => '---',
@@ -232,15 +232,15 @@ $TCA['tx_jobmarket_main'] = array (
       'l10n_mode' => 'exclude',
       'exclude' => 0,
       'l10n_mode' => 'exclude',
-      'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.sector', 
+      'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.sector',
       'config' => array (
-        'type' => 'select', 
+        'type' => 'select',
         'MM'                  => 'tx_jobmarket_main_mm_tx_jobmarket_sector',
         'foreign_table'       => 'tx_jobmarket_sector',
-        'foreign_table_where' => 'AND tx_jobmarket_sector.pid=###CURRENT_PID###  AND tx_org_jobmarket_sector.deleted = 0 AND tx_org_jobmarket_sector.hidden = 0 ORDER BY tx_jobmarket_sector.title',
-        'size' => 1, 
+        'foreign_table_where' => 'AND tx_jobmarket_sector.pid=###CURRENT_PID###  AND tx_org_jobmarket_sector.hidden = 0 ORDER BY tx_jobmarket_sector.title',
+        'size' => 1,
         'minitems' => 0,
-        'maxitems' => 1,  
+        'maxitems' => 1,
         'items' => array(
           '0' => array(
             '0' => '---',
@@ -285,15 +285,15 @@ $TCA['tx_jobmarket_main'] = array (
     'sectorgroup' => array (
       'l10n_mode' => 'exclude',
       'exclude' => 0,
-      'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.sectorgroup', 
+      'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.sectorgroup',
       'config' => array (
-        'type' => 'select', 
+        'type' => 'select',
         'MM'                  => 'tx_jobmarket_main_mm_tx_jobmarket_sectorgroup',
         'foreign_table'       => 'tx_jobmarket_sectorgroup',
-        'foreign_table_where' => 'AND tx_jobmarket_sectorgroup.pid=###CURRENT_PID### AND tx_org_jobmarket_sectorgroup.deleted = 0 AND tx_org_jobmarket_sectorgroup.hidden = 0 ORDER BY tx_jobmarket_sectorgroup.title',
-        'size' => 1, 
+        'foreign_table_where' => 'AND tx_jobmarket_sectorgroup.pid=###CURRENT_PID### AND tx_org_jobmarket_sectorgroup.hidden = 0 ORDER BY tx_jobmarket_sectorgroup.title',
+        'size' => 1,
         'minitems' => 0,
-        'maxitems' => 1,  
+        'maxitems' => 1,
         'items' => array(
           '0' => array(
             '0' => '---',
@@ -339,15 +339,15 @@ $TCA['tx_jobmarket_main'] = array (
       'l10n_mode' => 'exclude',
       'exclude' => 0,
       'l10n_mode' => 'exclude',
-      'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.region', 
+      'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.region',
       'config' => array (
-        'type' => 'select', 
+        'type' => 'select',
         'MM'                  => 'tx_jobmarket_main_mm_tx_jobmarket_region',
         'foreign_table'       => 'tx_jobmarket_region',
-        'foreign_table_where' => 'AND tx_jobmarket_region.pid=###CURRENT_PID### AND tx_org_jobmarket_region.deleted = 0 AND tx_org_jobmarket_region.hidden = 0 ORDER BY tx_jobmarket_region.title',
-        'size' => 1, 
+        'foreign_table_where' => 'AND tx_jobmarket_region.pid=###CURRENT_PID### AND tx_org_jobmarket_region.hidden = 0 ORDER BY tx_jobmarket_region.title',
+        'size' => 1,
         'minitems' => 0,
-        'maxitems' => 1,  
+        'maxitems' => 1,
         'items' => array(
           '0' => array(
             '0' => '---',
@@ -392,15 +392,15 @@ $TCA['tx_jobmarket_main'] = array (
     'county' => array (
       'l10n_mode' => 'exclude',
       'exclude' => 0,
-      'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.county', 
+      'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.county',
       'config' => array (
-        'type' => 'select', 
+        'type' => 'select',
         'MM'                  => 'tx_jobmarket_main_mm_tx_jobmarket_county',
         'foreign_table'       => 'tx_jobmarket_county',
-        'foreign_table_where' => 'AND tx_jobmarket_county.pid=###CURRENT_PID### AND tx_org_jobmarket_county.deleted = 0 AND tx_org_jobmarket_county.hidden = 0 ORDER BY tx_jobmarket_county.title',
-        'size' => 1, 
+        'foreign_table_where' => 'AND tx_jobmarket_county.pid=###CURRENT_PID### AND tx_org_jobmarket_county.hidden = 0 ORDER BY tx_jobmarket_county.title',
+        'size' => 1,
         'minitems' => 0,
-        'maxitems' => 1,  
+        'maxitems' => 1,
         'items' => array(
           '0' => array(
             '0' => '---',
@@ -446,15 +446,15 @@ $TCA['tx_jobmarket_main'] = array (
       'l10n_mode' => 'exclude',
       'exclude' => 0,
       'l10n_mode' => 'exclude',
-      'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.contractor', 
+      'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.contractor',
       'config' => array (
-        'type' => 'select', 
+        'type' => 'select',
         'MM'                  => 'tx_jobmarket_main_mm_tx_jobmarket_contractor',
         'foreign_table'       => 'tx_jobmarket_contractor',
-        'foreign_table_where' => 'AND tx_jobmarket_contractor.pid=###CURRENT_PID### AND tx_org_jobmarket_contractor.deleted = 0 AND tx_org_jobmarket_contractor.hidden = 0 ORDER BY tx_jobmarket_contractor.title',
-        'size' => 1, 
+        'foreign_table_where' => 'AND tx_jobmarket_contractor.pid=###CURRENT_PID### AND tx_org_jobmarket_contractor.hidden = 0 ORDER BY tx_jobmarket_contractor.title',
+        'size' => 1,
         'minitems' => 0,
-        'maxitems' => 1,  
+        'maxitems' => 1,
         'items' => array(
           '0' => array(
             '0' => '---',
@@ -512,11 +512,11 @@ $TCA['tx_jobmarket_main'] = array (
       'config' => array (
         'type' => 'group',
         'internal_type' => 'file',
-        'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'], 
-        'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'], 
+        'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+        'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
         'uploadfolder' => 'uploads/tx_jobmarket',
-        'show_thumbs' => 1, 
-        'size' => 3,  
+        'show_thumbs' => 1,
+        'size' => 3,
         'minitems' => 0,
         'maxitems' => 10,
       )
@@ -526,7 +526,7 @@ $TCA['tx_jobmarket_main'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagecaption',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -535,7 +535,7 @@ $TCA['tx_jobmarket_main'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagealttext',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -544,7 +544,7 @@ $TCA['tx_jobmarket_main'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagetitletext',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -555,10 +555,10 @@ $TCA['tx_jobmarket_main'] = array (
         'type' => 'group',
         'internal_type' => 'file',
         'allowed' => '',
-        'disallowed' => 'php,php3', 
-        'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'], 
+        'disallowed' => 'php,php3',
+        'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
         'uploadfolder' => 'uploads/tx_jobmarket',
-        'size' => 3,  
+        'size' => 3,
         'minitems' => 0,
         'maxitems' => 10,
       )
@@ -633,9 +633,9 @@ if($bool_LL)
 
 
   ///////////////////////////////////////
-  // 
+  //
   // TCA Contractor
-  
+
   // Non localized
 $TCA['tx_jobmarket_contractor'] = array (
   'ctrl' => $TCA['tx_jobmarket_contractor']['ctrl'],
@@ -684,7 +684,7 @@ $TCA['tx_jobmarket_contractor'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_contractor.address',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -726,11 +726,11 @@ $TCA['tx_jobmarket_contractor'] = array (
       'config' => array (
         'type' => 'group',
         'internal_type' => 'file',
-        'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'], 
-        'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'], 
+        'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+        'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
         'uploadfolder' => 'uploads/tx_jobmarket',
-        'show_thumbs' => 1, 
-        'size' => 3,  
+        'show_thumbs' => 1,
+        'size' => 3,
         'minitems' => 0,
         'maxitems' => 10,
       )
@@ -740,7 +740,7 @@ $TCA['tx_jobmarket_contractor'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagecaption',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -749,7 +749,7 @@ $TCA['tx_jobmarket_contractor'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagealttext',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -758,7 +758,7 @@ $TCA['tx_jobmarket_contractor'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagetitletext',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -819,7 +819,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_contractor.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
@@ -829,7 +829,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_contractor.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
@@ -839,7 +839,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_contractor.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
@@ -872,9 +872,9 @@ if(!$bool_LL)
 
 
   ///////////////////////////////////////
-  // 
+  //
   // TCA Region
-  
+
   // Non localized
 $TCA['tx_jobmarket_region'] = array (
   'ctrl' => $TCA['tx_jobmarket_region']['ctrl'],
@@ -915,11 +915,11 @@ $TCA['tx_jobmarket_region'] = array (
       'config' => array (
         'type' => 'group',
         'internal_type' => 'file',
-        'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'], 
-        'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'], 
+        'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+        'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
         'uploadfolder' => 'uploads/tx_jobmarket',
-        'show_thumbs' => 1, 
-        'size' => 3,  
+        'show_thumbs' => 1,
+        'size' => 3,
         'minitems' => 0,
         'maxitems' => 10,
       )
@@ -929,7 +929,7 @@ $TCA['tx_jobmarket_region'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagecaption',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -938,7 +938,7 @@ $TCA['tx_jobmarket_region'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagealttext',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -947,7 +947,7 @@ $TCA['tx_jobmarket_region'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagetitletext',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -1006,7 +1006,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_region.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
@@ -1016,7 +1016,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_region.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
@@ -1026,7 +1026,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_region.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
@@ -1059,9 +1059,9 @@ if(!$bool_LL)
 
 
   ///////////////////////////////////////
-  // 
+  //
   // TCA County
-  
+
   // Non localized
 $TCA['tx_jobmarket_county'] = array (
   'ctrl' => $TCA['tx_jobmarket_county']['ctrl'],
@@ -1094,11 +1094,11 @@ $TCA['tx_jobmarket_county'] = array (
       'config' => array (
         'type' => 'group',
         'internal_type' => 'file',
-        'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'], 
-        'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'], 
+        'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+        'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
         'uploadfolder' => 'uploads/tx_jobmarket',
-        'show_thumbs' => 1, 
-        'size' => 3,  
+        'show_thumbs' => 1,
+        'size' => 3,
         'minitems' => 0,
         'maxitems' => 10,
       )
@@ -1108,7 +1108,7 @@ $TCA['tx_jobmarket_county'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagecaption',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -1117,7 +1117,7 @@ $TCA['tx_jobmarket_county'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagealttext',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -1126,7 +1126,7 @@ $TCA['tx_jobmarket_county'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagetitletext',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -1185,7 +1185,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_county.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
@@ -1195,7 +1195,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_county.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
@@ -1205,7 +1205,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_county.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
@@ -1238,9 +1238,9 @@ if(!$bool_LL)
 
 
   ///////////////////////////////////////
-  // 
+  //
   // TCA Sector
-  
+
   // Non localized
 $TCA['tx_jobmarket_sector'] = array (
   'ctrl' => $TCA['tx_jobmarket_sector']['ctrl'],
@@ -1273,11 +1273,11 @@ $TCA['tx_jobmarket_sector'] = array (
       'config' => array (
         'type' => 'group',
         'internal_type' => 'file',
-        'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'], 
-        'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'], 
+        'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+        'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
         'uploadfolder' => 'uploads/tx_jobmarket',
-        'show_thumbs' => 1, 
-        'size' => 3,  
+        'show_thumbs' => 1,
+        'size' => 3,
         'minitems' => 0,
         'maxitems' => 10,
       )
@@ -1287,7 +1287,7 @@ $TCA['tx_jobmarket_sector'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagecaption',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -1296,7 +1296,7 @@ $TCA['tx_jobmarket_sector'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagealttext',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -1305,7 +1305,7 @@ $TCA['tx_jobmarket_sector'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagetitletext',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -1364,7 +1364,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_sector.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
@@ -1374,7 +1374,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_sector.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
@@ -1384,7 +1384,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_sector.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
@@ -1417,9 +1417,9 @@ if(!$bool_LL)
 
 
   ///////////////////////////////////////
-  // 
+  //
   // TCA Sectorgroup
-  
+
   // Non localized
 $TCA['tx_jobmarket_sectorgroup'] = array (
   'ctrl' => $TCA['tx_jobmarket_sectorgroup']['ctrl'],
@@ -1452,11 +1452,11 @@ $TCA['tx_jobmarket_sectorgroup'] = array (
       'config' => array (
         'type' => 'group',
         'internal_type' => 'file',
-        'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'], 
-        'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'], 
+        'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+        'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
         'uploadfolder' => 'uploads/tx_jobmarket',
-        'show_thumbs' => 1, 
-        'size' => 3,  
+        'show_thumbs' => 1,
+        'size' => 3,
         'minitems' => 0,
         'maxitems' => 10,
       )
@@ -1466,7 +1466,7 @@ $TCA['tx_jobmarket_sectorgroup'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagecaption',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -1475,7 +1475,7 @@ $TCA['tx_jobmarket_sectorgroup'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagealttext',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -1484,7 +1484,7 @@ $TCA['tx_jobmarket_sectorgroup'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagetitletext',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -1543,7 +1543,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_sectorgroup.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
@@ -1553,7 +1553,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_sectorgroup.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
@@ -1563,7 +1563,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_sectorgroup.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
@@ -1596,9 +1596,9 @@ if(!$bool_LL)
 
 
   ///////////////////////////////////////
-  // 
+  //
   // TCA Type
-  
+
   // Non localized
 $TCA['tx_jobmarket_type'] = array (
   'ctrl' => $TCA['tx_jobmarket_type']['ctrl'],
@@ -1631,11 +1631,11 @@ $TCA['tx_jobmarket_type'] = array (
       'config' => array (
         'type' => 'group',
         'internal_type' => 'file',
-        'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'], 
-        'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'], 
+        'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+        'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
         'uploadfolder' => 'uploads/tx_jobmarket',
-        'show_thumbs' => 1, 
-        'size' => 3,  
+        'show_thumbs' => 1,
+        'size' => 3,
         'minitems' => 0,
         'maxitems' => 10,
       )
@@ -1645,7 +1645,7 @@ $TCA['tx_jobmarket_type'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagecaption',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -1654,7 +1654,7 @@ $TCA['tx_jobmarket_type'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagealttext',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -1663,7 +1663,7 @@ $TCA['tx_jobmarket_type'] = array (
       'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_main.imagetitletext',
       'config' => array (
         'type' => 'text',
-        'cols' => '30', 
+        'cols' => '30',
         'rows' => '5',
       )
     ),
@@ -1722,7 +1722,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_type.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
@@ -1732,7 +1732,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_type.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
@@ -1742,7 +1742,7 @@ if($bool_LL)
     'label' => 'LLL:EXT:job_market/locallang_db.xml:tx_jobmarket_type.title_lang_ol',
     'config' => array (
       'type' => 'text',
-      'cols' => '30', 
+      'cols' => '30',
       'rows' => '5',
     )
   );
