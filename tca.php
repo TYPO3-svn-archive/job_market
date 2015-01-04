@@ -237,7 +237,7 @@ $TCA['tx_jobmarket_main'] = array (
         'type' => 'select',
         'MM'                  => 'tx_jobmarket_main_mm_tx_jobmarket_sector',
         'foreign_table'       => 'tx_jobmarket_sector',
-        'foreign_table_where' => 'AND tx_jobmarket_sector.pid=###CURRENT_PID###  AND tx_org_jobmarket_sector.hidden = 0 ORDER BY tx_jobmarket_sector.title',
+        'foreign_table_where' => 'AND tx_jobmarket_sector.pid=###CURRENT_PID###  ORDER BY tx_jobmarket_sector.title',
         'size' => 1,
         'minitems' => 0,
         'maxitems' => 1,
